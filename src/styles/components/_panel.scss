@@ -1,0 +1,99 @@
+@include component("panel") {
+	padding: 12px 16px;
+	display: table;
+	width: 100%;
+	border-radius: 4px;
+	border: 1px solid $gray-light-400;
+	min-height: 52px;
+
+	@include modifier("single") {
+		padding: 16px;
+
+		@include for-size(tablet-only) {
+			padding: 16px 16px 0 16px;
+		}
+
+		@include for-size(desktop-only) {
+			padding: 16px 16px 0 16px;
+		}
+	}
+
+	@include modifier("last") {
+		margin-bottom: 9px;
+	}
+
+	@include element("row") {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		border-bottom: 1px solid $gray-light-500;
+		padding: 13px 0;
+
+		&:first-child {
+			padding-top: 0;
+		}
+
+		&:last-child {
+			border-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+
+	@include element("col-right") {
+		@include modifier("link") {
+			max-width: 42px;
+		}
+
+		@include modifier("amount") {
+			max-width: 60px;
+			font-weight: $font-weight-bold;
+		}
+	}
+
+	@include element("col-left") {
+		flex: 1;
+	}
+
+	@include element("col-inner") {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+
+	@include element("label") {
+		width: 100%;
+		padding-right: 16px;
+		color: $gray-100;
+		line-height: 1.2;
+
+		@include for-size(tablet-only) {
+			width: 86px;
+		}
+
+		@include for-size(desktop-only) {
+			width: 86px;
+		}
+	}
+
+	@include element("radio-button") {
+		width: 29px;
+		padding-right: 11px;
+	}
+
+	@include element("content") {
+		flex: 1;
+		padding-right: 16px;
+		color: $gray-700;
+		line-height: 1.2;
+	}
+
+	@include element("content-text") {
+		line-height: 1.3;
+	}
+
+	@include element("link-block") {
+		font-size: $font-size-sm;
+		color: $link-color;
+		line-height: 1.4;
+	}
+}

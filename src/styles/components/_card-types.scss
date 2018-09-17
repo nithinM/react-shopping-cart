@@ -1,0 +1,35 @@
+@include component("card-types") {
+	display: table;
+
+	@include element("icon") {
+		width: 43px;
+		height: 24px;
+		display: table-cell;
+		vertical-align: middle;
+		padding-left: 5px;
+
+		@include modifier("gray-scale") {
+			filter: grayscale(100%);
+			opacity: 0.4;
+		}
+	}
+
+	@include modifier("visa") {
+		background: url("../images/visa.svg") no-repeat center;
+	}
+	@include modifier("master") {
+		background: url("../images/master.svg") no-repeat center;
+	}
+	@include modifier("amex") {
+		background: url("../images/amex.svg") no-repeat center;
+	}
+	@include modifier("discover") {
+		background: url("../images/discover.svg") no-repeat center;
+	}
+	@include modifier("more") {
+		padding-left: 7px;
+		width: auto;
+		font-size: $font-size-sm;
+		color: $gray-100;
+	}
+}

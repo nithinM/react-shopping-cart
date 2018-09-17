@@ -1,0 +1,19 @@
+@include component("footer-nav") {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+
+	@include element("link-wrapper") {
+		display: inline-block;
+		padding: 0 18px 0 0;
+	}
+
+	@include element("link") {
+		color: lighten($link-color, 10%);
+		font-size: $font-size-sm;
+
+		&:hover {
+			color: $link-color;
+		}
+	}
+}

@@ -1,0 +1,131 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+* {
+	box-sizing: border-box;
+}
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: $white;
+}
+
+img {
+	border: 0;
+	max-width: 100%;
+}
+
+@include component("container") {
+	display: flex;
+	flex: 1 0 auto;
+	overflow: hidden;
+}
+
+@include component("wrapper") {
+	display: flex;
+	flex: 1 0 auto;
+	margin: 0 auto;
+	width: 100%;
+
+	@include for-size(tablet-only) {
+		padding: 0;
+	}
+
+	@include for-size(desktop-only) {
+		width: 90%;
+		max-width: 1268px;
+		padding: 0 5%;
+	}
+}
+
+@include component("main") {
+	display: flex;
+	flex: 1 0 auto;
+	padding: 21px 0;
+	width: 100%;
+	padding-right: 0;
+	float: left;
+
+	@include for-size(desktop-only) {
+		width: 48%;
+		padding: 4em 0 0 0;
+		padding-right: 6%;
+		min-height: 100vh;
+	}
+
+	@include element("wrap") {
+		width: 100%;
+		display: block;
+	}
+
+	@include element("logo") {
+		padding-bottom: 17px;
+		width: 100%;
+		max-width: 560px;
+		margin: 0 auto;
+		padding: 0 14px 17px 14px;
+
+		@include for-size(desktop-only) {
+			padding-bottom: 0;
+			max-width: auto;
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	@include element("logo-link") {
+		width: 124px;
+		display: block;
+
+		@include for-size(desktop-only) {
+			width: 165px;
+		}
+	}
+
+	@include element("footer") {
+		width: 100%;
+		max-width: 560px;
+		padding: 0 14px 20px 14px;
+		margin: 0 auto;
+
+		@include for-size(tablet-only) {
+			padding: 0 0 20px 0;
+		}
+	}
+
+	@include element("footer-wrapper") {
+		border-top: 1px solid $gray-light-500;
+		padding-top: 13px;
+	}
+}
+
+@include component("sidebar") {
+	position: relative;
+	width: 100%;
+	padding-left: 4%;
+	background-position: left top;
+	float: right;
+	padding-top: 4em;
+
+	@include for-size(desktop-only) {
+		width: 42%;
+		min-height: 100vh;
+	}
+
+	&:after {
+		content: "";
+		display: block;
+		width: 300%;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		background: #f2f2f2;
+		z-index: -1;
+		box-shadow: 1px 0 0 #dadada inset;
+		left: 0;
+		background-position: left top;
+	}
+}
