@@ -1,0 +1,211 @@
+@include component("order-summary") {
+	background-color: $gray-light-600;
+	max-height: 1000px;
+	transition: max-height 0.8s;
+
+	@include for-size(desktop-only) {
+		border-bottom: 0;
+	}
+
+	@include modifier("hide") {
+		max-height: 0;
+		overflow: hidden;
+	}
+
+	@include element("content") {
+		width: 100%;
+		max-width: 560px;
+		margin: 0 auto;
+		padding: 0 14px 0 14px;
+		border-bottom: 1px solid #dadada;
+
+		@include for-size(desktop-only) {
+			padding: 0;
+			border-bottom: 0;
+		}
+	}
+
+	@include element("section") {
+		padding: 21px 0;
+		width: 100%;
+
+		@include modifier("products") {
+			@include for-size(desktop-only) {
+				padding: 11px 0 6px 0;
+				margin-bottom: 14px;
+				border-bottom: 1px solid $gray-light-400;
+			}
+		}
+
+		@include modifier("checkout-notes") {
+			padding-bottom: 0;
+		}
+
+		@include modifier("discount") {
+			padding-top: 0;
+		}
+
+		@include modifier("total") {
+			border-top: 1px solid $gray-light-400;
+		}
+	}
+
+	@include element("item") {
+		display: table;
+		width: 100%;
+		margin-bottom: 14px;
+	}
+
+	@include element("item-image-wrap") {
+		display: table-cell;
+		vertical-align: middle;
+		position: relative;
+		width: 64px;
+		height: 64px;
+	}
+
+	@include element("item-image-holder") {
+		width: 64px;
+		height: 64px;
+		border-radius: 8px;
+		position: relative;
+		display: block;
+	}
+
+	@include element("item-image") {
+		border-radius: 8px;
+		border: 1px solid $gray-light-500;
+		background: $white;
+	}
+
+	@include element("item-quantity") {
+		position: absolute;
+		min-width: 21px;
+		height: 21px;
+		border-radius: 50%;
+		background: rgba(114, 114, 114, 0.9);
+		text-align: center;
+		line-height: 20px;
+		padding-left: 1px;
+		color: $white;
+		font-size: $font-size-sm;
+		font-weight: $font-weight-bold;
+		top: -9px;
+		right: -9px;
+	}
+
+	@include element("item-info") {
+		display: table-cell;
+		vertical-align: middle;
+		padding-left: 15px;
+		width: 55%;
+
+		@include for-size(desktop-only) {
+			width: 59%;
+		}
+	}
+
+	@include element("item-name") {
+		width: 100%;
+		display: block;
+		color: $gray-600;
+		font-weight: $font-weight-bold;
+		line-height: 1.3;
+	}
+
+	@include element("item-details") {
+		width: 100%;
+		display: block;
+		color: $gray-200;
+		font-size: $font-size-sm;
+		line-height: 1.5;
+	}
+
+	@include element("item-price") {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: right;
+		color: $gray-600;
+		font-weight: $font-weight-bold;
+		line-height: 1.4;
+	}
+
+	@include element("checkout-notes") {
+		background-color: $gray-light-800;
+		border: 1px solid $gray-light-800;
+		border-radius: 4px;
+		padding: 15px 15px 30px 15px;
+	}
+
+	@include element("checkout-notes-title") {
+		font-family: Helvetica-Bold, sans-serif;
+		color: $gray-500;
+		margin-bottom: 3px;
+		line-height: 1.5;
+	}
+
+	@include element("checkout-notes-list") {
+		margin: 0;
+		padding: 0;
+	}
+
+	@include element("checkout-notes-list-item") {
+		color: $gray-500;
+		margin-top: 10px;
+		margin-left: 25px;
+	}
+
+	@include element("discont-text") {
+		color: $link-color;
+		margin-top: 20px;
+	}
+
+	@include element("total") {
+		display: table;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	@include element("total-label") {
+		display: table-cell;
+		vertical-align: middle;
+		color: $gray-600;
+
+		@include modifier("lg") {
+			font-size: $font-size-lg - 2;
+			line-height: 1.4;
+		}
+	}
+
+	@include element("total-amount") {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: right;
+		font-weight: $font-weight-bold;
+		color: $gray-600;
+	}
+
+	@include element("total-full") {
+		border-top: 1px solid $gray-light-400;
+		margin-top: 21px;
+		padding: 21px 0 0 0;
+		display: table;
+		width: 100%;
+	}
+
+	@include element("curreny-type") {
+		font-size: $font-size-sm;
+		font-weight: $font-weight-normal;
+		color: $gray-200;
+		margin-right: 10px;
+		vertical-align: middle;
+		line-height: 1;
+	}
+
+	@include element("amount") {
+		font-size: $font-size-lg + 6;
+		line-height: 1;
+		letter-spacing: -1px;
+		vertical-align: middle;
+	}
+}

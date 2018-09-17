@@ -1,0 +1,125 @@
+// -----------------------------------------------------------------------------
+// This file contains all breakpoints Sass mixins.
+// -----------------------------------------------------------------------------
+
+@mixin for-size($range) {
+	@if $range == desktop-only {
+		@media (min-width: #{$tablet-upper-boundary}) {
+			@content;
+		}
+	} @else if $range == tablet-only {
+		@media (min-width: #{$phone-upper-boundary}) {
+			@content;
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+@mixin set-font($font-size: null, $font-weight: null, $font-color: null, $line-height: null) {
+	@if ($font-size) {
+		font-size: $font-size;
+	} @else {
+		font-size: $font-size-default;
+	}
+
+	@if ($font-weight) {
+		font-weight: $font-weight;
+	} @else {
+		font-weight: 400;
+	}
+
+	@if ($font-color) {
+		color: $font-color;
+	} @else {
+		color: $text-base-color;
+	}
+
+	@if ($line-height) {
+		line-height: $line-height;
+	} @else {
+		line-height: inherit;
+	}
+}
+
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+@mixin button-variant($color, $background, $border) {
+	color: $color;
+	background-color: $background;
+	border-color: $border;
+	text-shadow: -1px 1px darken($background, 5%);
+
+	&:focus,
+	&.focus {
+		color: $color;
+		background-color: darken($background, 10%);
+		border-color: darken($border, 25%);
+		text-shadow: -1px 1px darken($background, 15%);
+	}
+	&:hover {
+		color: $color;
+		background-color: darken($background, 10%);
+		border-color: darken($border, 12%);
+	}
+	&:active,
+	&.active,
+	.open > &.dropdown-toggle {
+		color: $color;
+		background-color: darken($background, 10%);
+		border-color: darken($border, 12%);
+
+		&:hover,
+		&:focus,
+		&.focus {
+			color: $color;
+			background-color: darken($background, 17%);
+			border-color: darken($border, 25%);
+		}
+	}
+	&:active,
+	&.active,
+	.open > &.dropdown-toggle {
+		background-image: none;
+	}
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		&:hover,
+		&:focus,
+		&.focus {
+			background-color: $background;
+			border-color: $border;
+		}
+	}
+
+	.badge {
+		color: $background;
+		background-color: $color;
+	}
+}
+
+@mixin text-variant($color, $decoration, $background-color: null) {
+	&:focus,
+	&:hover,
+	&:active {
+		@if ($background-color) {
+			background: $background-color;
+		}
+		color: $color;
+		text-decoration: $decoration;
+	}
+}
+
+// Button sizes
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius, $font-weight) {
+	padding: $padding-vertical $padding-horizontal;
+	font-size: $font-size;
+	line-height: $line-height;
+	border-radius: $border-radius;
+	font-weight: $font-weight;
+}

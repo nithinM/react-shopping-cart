@@ -1,0 +1,18 @@
+@include component("notification") {
+	padding: 14px 14px 14px 48px;
+	margin-bottom: 21px;
+	border: 1px solid;
+	border-radius: 4px;
+	color: $gray-300;
+
+	@include modifier("error") {
+		background: url("../images/error.svg") no-repeat $notify-error-bg left 10px top 8px;
+		background-size: 32px 32px;
+		border-color: #f5dbda;
+	}
+
+	@include element("text") {
+		padding: 0;
+		margin: 0;
+	}
+}

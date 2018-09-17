@@ -1,0 +1,155 @@
+@include component("accordion") {
+	border-radius: 4px;
+	border: 1px solid $gray-light-400;
+	display: block;
+
+	@include element("panel") {
+		position: relative;
+		display: block;
+		border-top: 1px solid $gray-light-400;
+
+		&:first-child {
+			border-top: 0;
+		}
+	}
+
+	@include element("title") {
+		width: 100%;
+	}
+
+	@include element("title-text") {
+		max-width: 50%;
+	}
+
+	@include element("title-image") {
+		max-width: 50%;
+
+		@include modifier("amazonpay") {
+			background: url("../images/amazonpay-icon.png") no-repeat;
+			width: 88px;
+			height: 24px;
+			display: inline-block;
+			background-size: 88px 24px;
+		}
+	}
+
+	@include element("title-info") {
+		max-width: 100%;
+		float: left;
+		padding: 5px 0 10px 25px;
+
+		@include for-size(tablet-only) {
+			max-width: 50%;
+			float: right;
+			padding: 0;
+		}
+
+		@include modifier("card-icons") {
+			margin-top: -2px;
+		}
+	}
+
+	@include element("input-radio") {
+		position: absolute;
+		opacity: 0;
+		+ label {
+			position: relative;
+			display: block;
+			padding: 16px;
+			background: $white;
+			height: 52px;
+			color: $gray-700;
+			font-weight: $font-weight-bold;
+			cursor: pointer;
+			border-radius: 4px;
+
+			&:before {
+				content: "";
+				background: $white;
+				border-radius: 100%;
+				border: 1px solid $gray-light-400;
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+				position: relative;
+				top: -1px;
+				margin-right: 10px;
+				vertical-align: middle;
+				cursor: pointer;
+				text-align: center;
+				transition: all 250ms ease;
+			}
+		}
+		&:checked {
+			+ label {
+				&:before {
+					background-color: $white;
+					box-shadow: inset 0 0 0 6px $link-color;
+					border-color: $link-color;
+				}
+			}
+		}
+		&:focus {
+			+ label {
+				&:before {
+					outline: none;
+					border-color: $link-color;
+				}
+			}
+		}
+		&:disabled {
+			+ label {
+				&:before {
+					background-color: $gray-100;
+				}
+			}
+		}
+		+ label {
+			&:empty {
+				&:before {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+	@include element("content") {
+		width: 100%;
+		max-height: 0;
+		overflow: hidden;
+		-webkit-transition: all 0.25s linear, opacity 0.15s linear;
+		position: relative;
+		margin-bottom: 0;
+		padding: 0 15px;
+		opacity: 0;
+		border-top: 1px solid $gray-light-400;
+		background: $gray-light-700;
+		border-radius: 0 0 4px 4px;
+	}
+
+	@include element("label") {
+		@include modifier("title-image") {
+			&::before {
+				top: -8px !important;
+			}
+		}
+	}
+
+	@include element("content-blank") {
+		min-height: 191px;
+		background: url("../images/offsite.svg") no-repeat center 30px;
+		position: relative;
+	}
+
+	@include element("content-blank-text") {
+		position: absolute;
+		bottom: 30px;
+		left: 0;
+		right: 0;
+		text-align: center;
+		color: $gray-300;
+	}
+}
+.c-accordion__input-radio:checked ~ .c-accordion__content {
+	max-height: 1000px;
+	opacity: 1;
+}

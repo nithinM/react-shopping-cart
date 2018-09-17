@@ -1,0 +1,48 @@
+@include component("breadcrumb") {
+	list-style: none;
+	padding: 0 0 29px 0;
+	margin: 12px 0 0 0;
+	font-size: 12px;
+	color: #737373;
+	display: none;
+
+	@include for-size(desktop-only) {
+		display: block;
+	}
+
+	@include element("item") {
+		display: inline;
+		padding: 0 13px;
+		position: relative;
+
+		&::after {
+			content: "";
+			width: 13px;
+			height: 13px;
+			background: url("../images/right-chevron.svg") no-repeat;
+			top: 1px;
+			right: -7px;
+			position: absolute;
+			display: inline-block;
+			background-size: 13px 13px;
+			color: $gray-100;
+		}
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:last-child {
+			padding-right: 0;
+
+			&::after {
+				display: none;
+			}
+		}
+
+		@include modifier("current") {
+			font-weight: $font-weight-bold;
+			color: $gray-700;
+		}
+	}
+}
